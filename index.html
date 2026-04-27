@@ -1,0 +1,1055 @@
+<!doctype html>
+<html class="scroll-smooth" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Syrena Chung - Full Stack Developer</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="docs/favicon.ico" type="image/x-icon" />
+    <script id="tailwind-config">
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              cream: "#FBF7F0",
+              orange: "#D66430",
+              "orange-dark": "#B54D1F",
+              "light-blue": "#B8E6E6",
+              "light-yellow": "#FFE699",
+              "light-pink": "#FFD9D9",
+              "light-purple": "#D9D9FF",
+              "light-green": "#C8E6C9",
+            },
+            fontFamily: {
+              sans: ["Poppins", "sans-serif"],
+              display: ["Poppins", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .icon-fill {
+        font-variation-settings:
+          "FILL" 1,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+      .float-icon {
+        animation: float 3s ease-in-out infinite;
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .fade-in-up {
+        animation: fadeInUp 0.8s ease-out forwards;
+      }
+      .typewriter {
+        overflow: hidden;
+        border-right: 3px solid #d66430;
+        white-space: nowrap;
+        animation:
+          typing 3s steps(30) 1s forwards,
+          blink 0.75s step-end infinite;
+      }
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+      @keyframes blink {
+        50% {
+          border-color: transparent;
+        }
+      }
+      .typewriter-done {
+        border-right: none;
+      }
+    </style>
+  </head>
+  <body class="bg-cream text-gray-900 antialiased overflow-x-hidden">
+    <!-- TopNavBar -->
+    <nav
+      class="bg-white/95 backdrop-blur-md fixed top-0 w-full z-50 border-b border-orange/10 shadow-sm"
+    >
+      <div
+        class="flex justify-between items-center h-14 md:h-16 max-w-7xl mx-auto px-4 md:px-6 w-full"
+      >
+        <div class="text-lg md:text-xl font-bold tracking-tight text-gray-900">
+          Syrena <span class="text-orange">Chung</span>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a
+            class="nav-link text-sm font-medium text-gray-900 border-b-2 border-orange pb-1 transition-all duration-300 hover:opacity-80"
+            data-section="home"
+            href="#home"
+            >Home</a
+          >
+          <a
+            class="nav-link text-sm font-medium text-gray-500 hover:text-gray-900 transition-all duration-300"
+            data-section="about"
+            href="#about"
+            >About</a
+          >
+          <a
+            class="nav-link text-sm font-medium text-gray-500 hover:text-gray-900 transition-all duration-300"
+            data-section="projects"
+            href="#projects"
+            >Projects</a
+          >
+          <a
+            class="nav-link text-sm font-medium text-gray-500 hover:text-gray-900 transition-all duration-300"
+            data-section="contact"
+            href="#contact"
+            >Contact</a
+          >
+        </div>
+        <div class="flex items-center gap-2 md:gap-4">
+          <a
+            href="https://linkedin.com/in/sychcc"
+            target="_blank"
+            class="text-gray-600 hover:text-orange transition-colors"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://github.com/sychcc"
+            target="_blank"
+            class="text-gray-600 hover:text-orange transition-colors"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+              />
+            </svg>
+          </a>
+          <a
+            href="./docs/resume.pdf"
+            target="_blank"
+            class="text-xs md:text-sm font-semibold bg-orange text-white px-3 md:px-5 py-2 md:py-2.5 rounded-lg hover:bg-orange-dark transition-all shadow-md hover:shadow-lg active:scale-95"
+          >
+            Resume
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="w-full">
+      <!-- Hero Section - Enhanced with RWD -->
+      <section
+        class="min-h-screen md:min-h-screen pt-24 md:pt-32 pb-12 md:pb-20 flex items-center relative bg-gradient-to-br from-cream via-white to-light-yellow/30 overflow-hidden"
+        id="home"
+      >
+        <div
+          class="max-w-7xl mx-auto px-4 md:px-6 w-full grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center relative z-10"
+        >
+          <!-- Left: Text Content -->
+          <div class="space-y-6 fade-in-up order-2 md:order-1">
+            <div
+              class="inline-flex items-center gap-2 px-4 py-2 bg-orange/10 rounded-full text-orange font-medium text-sm border border-orange/20"
+            >
+              <span class="text-xl">👋</span>
+              <span class="uppercase tracking-wide">Hello World</span>
+            </div>
+
+            <h1
+              class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+            >
+              <span id="typewriter-text" class="typewriter inline-block"
+                >I'm a <span class="text-orange">Full-Stack</span></span
+              ><br />Developer
+            </h1>
+
+            <p
+              class="text-base md:text-lg text-gray-600 leading-relaxed max-w-lg"
+            >
+              I build web applications across the full stack. Frontend with
+              Next.js and TypeScript, backend APIs with Next.js API Routes and
+              Python FastAPI, deployed on AWS.
+            </p>
+
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-3 gap-3 md:gap-4 pt-2">
+              <div
+                class="bg-white/60 backdrop-blur-sm border-2 border-gray-900 rounded-xl p-3 md:p-4 text-center hover:scale-105 transition-transform"
+              >
+                <div class="text-xl md:text-2xl font-bold text-orange">2+</div>
+                <div
+                  class="text-[10px] md:text-xs text-gray-600 font-semibold mt-1"
+                >
+                  Projects
+                </div>
+              </div>
+              <div
+                class="bg-white/60 backdrop-blur-sm border-2 border-gray-900 rounded-xl p-3 md:p-4 text-center hover:scale-105 transition-transform"
+              >
+                <div class="text-xl md:text-2xl font-bold text-orange">10+</div>
+                <div
+                  class="text-[10px] md:text-xs text-gray-600 font-semibold mt-1"
+                >
+                  Technologies
+                </div>
+              </div>
+              <div
+                class="bg-white/60 backdrop-blur-sm border-2 border-gray-900 rounded-xl p-3 md:p-4 text-center hover:scale-105 transition-transform"
+              >
+                <div class="text-xl md:text-2xl font-bold text-orange">6+</div>
+                <div
+                  class="text-[10px] md:text-xs text-gray-600 font-semibold mt-1"
+                >
+                  AWS Services
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row flex-wrap gap-4 pt-4">
+              <a
+                href="#projects"
+                class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-orange text-white rounded-lg font-semibold shadow-lg hover:bg-orange-dark hover:shadow-xl transition-all active:scale-95 text-sm md:text-base"
+              >
+                View Projects
+                <span class="material-symbols-outlined text-sm"
+                  >arrow_forward</span
+                >
+              </a>
+              <a
+                href="#contact"
+                class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-gray-900 border-2 border-gray-900 rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-all active:scale-95 text-sm md:text-base"
+              >
+                Let's Chat
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Photo with decorative elements -->
+          <div
+            class="relative flex justify-center items-center h-[400px] md:h-auto mt-8 md:mt-0 order-1 md:order-2"
+          >
+            <!-- Decorative rings -->
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div
+                class="w-[320px] h-[320px] md:w-[480px] md:h-[480px] border-2 border-orange/20 rounded-full"
+              ></div>
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div
+                class="w-[350px] h-[350px] md:w-[510px] md:h-[510px] border-2 border-light-blue/20 rounded-full"
+              ></div>
+            </div>
+
+            <!-- Main photo -->
+            <div
+              class="w-[300px] h-[300px] md:w-[460px] md:h-[460px] rounded-full bg-gradient-to-br from-blue-400 to-cyan-500 shadow-2xl overflow-hidden relative z-10"
+            >
+              <img
+                class="w-full h-full object-cover"
+                src="./docs/portfolio_pic.jpg"
+                alt="Syrena Chung"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About, Projects, Contact sections - keeping user's original code as they already have RWD -->
+      <!-- About Section - Warm cards with professional content -->
+      <section class="py-24 bg-white" id="about">
+        <div class="max-w-7xl mx-auto px-6 w-full">
+          <header class="mb-16 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Hello, I'm Syrena 👋
+            </h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+              A passionate full-stack developer focused on building elegant,
+              user-centric digital experiences with solid engineering practices.
+            </p>
+          </header>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Left Column: Bio & Journey -->
+            <div class="lg:col-span-2 space-y-8">
+              <!-- Bio Card -->
+              <div
+                class="bg-light-yellow/20 border-3 border-gray-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow"
+              >
+                <div class="flex items-center gap-3 mb-4">
+                  <span
+                    class="material-symbols-outlined icon-fill text-orange text-3xl"
+                    >person</span
+                  >
+                  <h3 class="text-2xl font-bold text-gray-900">About Me</h3>
+                </div>
+                <div class="space-y-4 text-gray-700 leading-relaxed">
+                  <p>
+                    I build things end-to-end, from writing backend logic and
+                    setting up databases to deploying on AWS with Docker and
+                    Nginx.
+                  </p>
+                  <p>
+                    I completed an intensive full-stack bootcamp structured
+                    across three stages. The final stage was an open-ended solo
+                    project with minimal guidance. I came up with the idea,
+                    designed the system, and built it independently from scratch
+                    to production.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Journey Card -->
+              <div
+                class="bg-light-blue/20 border-3 border-gray-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow"
+              >
+                <div class="flex items-center gap-3 mb-6">
+                  <span
+                    class="material-symbols-outlined icon-fill text-orange text-3xl"
+                    >timeline</span
+                  >
+                  <h3 class="text-2xl font-bold text-gray-900">
+                    Professional Journey
+                  </h3>
+                </div>
+
+                <div
+                  class="space-y-6 relative before:absolute before:left-5 before:top-0 before:h-full before:w-0.5 before:bg-orange/30"
+                >
+                  <!-- Timeline Item 1 -->
+                  <div class="relative pl-12">
+                    <div
+                      class="absolute left-0 top-1 w-10 h-10 rounded-full bg-orange text-white flex items-center justify-center font-bold shadow-md"
+                    >
+                      <span class="material-symbols-outlined text-sm"
+                        >school</span
+                      >
+                    </div>
+                    <div
+                      class="bg-white rounded-xl p-4 shadow-sm border border-gray-200"
+                    >
+                      <div
+                        class="flex flex-wrap justify-between items-start mb-2"
+                      >
+                        <h4 class="text-lg font-bold text-gray-900">
+                          Software Engineer Trainee
+                        </h4>
+                        <span
+                          class="text-xs font-semibold text-orange uppercase tracking-wide"
+                          >2025.10 – 2026.04</span
+                        >
+                      </div>
+                      <p class="text-gray-600 font-medium mb-2">Wehelp</p>
+                      <p class="text-sm text-gray-600">
+                        Completed an intensive full-stack bootcamp across three
+                        progressive stages. Built two production-ready projects
+                        independently, including an AI-powered pet health system
+                        with AWS infrastructure and an e-commerce platform with
+                        payment integration.
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Timeline Item 2 -->
+                  <div class="relative pl-12">
+                    <div
+                      class="absolute left-0 top-1 w-10 h-10 rounded-full bg-orange text-white flex items-center justify-center font-bold shadow-md"
+                    >
+                      <span class="material-symbols-outlined text-sm"
+                        >code</span
+                      >
+                    </div>
+                    <div
+                      class="bg-white rounded-xl p-4 shadow-sm border border-gray-200"
+                    >
+                      <div
+                        class="flex flex-wrap justify-between items-start mb-2"
+                      >
+                        <h4 class="text-lg font-bold text-gray-900">
+                          Frontend Developer
+                        </h4>
+                        <span
+                          class="text-xs font-semibold text-orange uppercase tracking-wide"
+                          >2023.07 – 2024.03</span
+                        >
+                      </div>
+                      <p class="text-gray-600 font-medium mb-2">
+                        Noonspace | Taipei
+                      </p>
+                      <p class="text-sm text-gray-600">
+                        Built and maintained client websites using a proprietary
+                        component-based system. Collaborated with UI/UX
+                        designers to evaluate feasibility and implement
+                        interface requirements.
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Timeline Item 3 -->
+                  <div class="relative pl-12">
+                    <div
+                      class="absolute left-0 top-1 w-10 h-10 rounded-full bg-orange text-white flex items-center justify-center font-bold shadow-md"
+                    >
+                      <span class="material-symbols-outlined text-sm"
+                        >work</span
+                      >
+                    </div>
+                    <div
+                      class="bg-white rounded-xl p-4 shadow-sm border border-gray-200"
+                    >
+                      <div
+                        class="flex flex-wrap justify-between items-start mb-2"
+                      >
+                        <h4 class="text-lg font-bold text-gray-900">
+                          Product Optimization Intern
+                        </h4>
+                        <span
+                          class="text-xs font-semibold text-orange uppercase tracking-wide"
+                          >2021.06 – 2022.06</span
+                        >
+                      </div>
+                      <p class="text-gray-600 font-medium mb-2">
+                        Shopee | Taipei
+                      </p>
+                      <p class="text-sm text-gray-600">
+                        Localized AI-generated product titles for the Taiwan
+                        market, processing around 300 entries per day. Analyzed
+                        category sales data using Excel and compiled weekly
+                        reports to support management decisions.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Skills -->
+            <div class="space-y-6">
+              <div
+                class="bg-light-purple/20 border-3 border-gray-900 rounded-2xl p-6 shadow-lg sticky top-24"
+              >
+                <div class="flex items-center gap-3 mb-6">
+                  <span
+                    class="material-symbols-outlined icon-fill text-orange text-3xl"
+                    >terminal</span
+                  >
+                  <h3 class="text-2xl font-bold text-gray-900">Tech Stack</h3>
+                </div>
+
+                <div class="space-y-6">
+                  <!-- Frontend -->
+                  <div>
+                    <h4
+                      class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3"
+                    >
+                      Frontend
+                    </h4>
+                    <div class="flex flex-wrap gap-2">
+                      <span
+                        class="px-3 py-1.5 bg-light-blue text-gray-900 rounded-full text-sm font-semibold border-2 border-gray-900"
+                        >TypeScript</span
+                      >
+                      <span
+                        class="px-3 py-1.5 bg-light-blue text-gray-900 rounded-full text-sm font-semibold border-2 border-gray-900"
+                        >Next.js</span
+                      >
+                      <span
+                        class="px-3 py-1.5 bg-light-blue text-gray-900 rounded-full text-sm font-semibold border-2 border-gray-900"
+                        >Tailwind</span
+                      >
+                    </div>
+                  </div>
+
+                  <!-- Backend -->
+                  <div>
+                    <h4
+                      class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3"
+                    >
+                      Backend
+                    </h4>
+                    <div class="flex flex-wrap gap-2">
+                      <span
+                        class="px-3 py-1.5 bg-light-yellow text-gray-900 rounded-full text-sm font-semibold border-2 border-gray-900"
+                        >Node.js</span
+                      >
+                      <span
+                        class="px-3 py-1.5 bg-light-yellow text-gray-900 rounded-full text-sm font-semibold border-2 border-gray-900"
+                        >Python</span
+                      >
+                      <span
+                        class="px-3 py-1.5 bg-light-yellow text-gray-900 rounded-full text-sm font-semibold border-2 border-gray-900"
+                        >FastAPI</span
+                      >
+                      <span
+                        class="px-3 py-1.5 bg-light-yellow text-gray-900 rounded-full text-sm font-semibold border-2 border-gray-900"
+                        >Prisma</span
+                      >
+                      <span
+                        class="px-3 py-1.5 bg-light-yellow text-gray-900 rounded-full text-sm font-semibold border-2 border-gray-900"
+                        >NextAuth</span
+                      >
+                    </div>
+                  </div>
+
+                  <!-- Cloud & DevOps -->
+                  <div>
+                    <h4
+                      class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3"
+                    >
+                      Cloud & DevOps
+                    </h4>
+                    <div class="flex flex-wrap gap-2">
+                      <span
+                        class="px-3 py-1.5 bg-light-pink text-gray-900 rounded-full text-sm font-semibold border-2 border-gray-900"
+                        >AWS EC2</span
+                      >
+                      <span
+                        class="px-3 py-1.5 bg-light-pink text-gray-900 rounded-full text-sm font-semibold border-2 border-gray-900"
+                        >S3</span
+                      >
+                      <span
+                        class="px-3 py-1.5 bg-light-pink text-gray-900 rounded-full text-sm font-semibold border-2 border-gray-900"
+                        >CloudFront</span
+                      >
+                      <span
+                        class="px-3 py-1.5 bg-light-pink text-gray-900 rounded-full text-sm font-semibold border-2 border-gray-900"
+                        >Load Balancer</span
+                      >
+                      <span
+                        class="px-3 py-1.5 bg-light-pink text-gray-900 rounded-full text-sm font-semibold border-2 border-gray-900"
+                        >Docker</span
+                      >
+                      <span
+                        class="px-3 py-1.5 bg-light-pink text-gray-900 rounded-full text-sm font-semibold border-2 border-gray-900"
+                        >Nginx</span
+                      >
+                      <span
+                        class="px-3 py-1.5 bg-light-pink text-gray-900 rounded-full text-sm font-semibold border-2 border-gray-900"
+                        >GitHub Actions</span
+                      >
+                    </div>
+                  </div>
+
+                  <!-- Database & AI -->
+                  <div>
+                    <h4
+                      class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3"
+                    >
+                      Database & AI
+                    </h4>
+                    <div class="flex flex-wrap gap-2">
+                      <span
+                        class="px-3 py-1.5 bg-light-green text-gray-900 rounded-full text-sm font-semibold border-2 border-gray-900"
+                        >PostgreSQL</span
+                      >
+                      <span
+                        class="px-3 py-1.5 bg-light-green text-gray-900 rounded-full text-sm font-semibold border-2 border-gray-900"
+                        >MySQL</span
+                      >
+                      <span
+                        class="px-3 py-1.5 bg-light-green text-gray-900 rounded-full text-sm font-semibold border-2 border-gray-900"
+                        >Gemini API</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section - Professional cards -->
+      <section
+        class="py-24 bg-gradient-to-br from-cream to-light-yellow/20"
+        id="projects"
+      >
+        <div class="max-w-7xl mx-auto px-6 w-full">
+          <div class="mb-16 text-center max-w-2xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Selected Works
+            </h2>
+            <p class="text-lg text-gray-600">
+              Full-stack applications demonstrating clean architecture, modern
+              frameworks, and production-ready deployment.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Project 1: PetHealth -->
+            <div
+              class="bg-white border-3 border-gray-900 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group flex flex-col"
+            >
+              <div
+                class="relative h-64 overflow-hidden bg-gradient-to-br from-blue-50 to-green-50"
+              >
+                <div
+                  class="absolute inset-0 flex items-center justify-center p-4"
+                >
+                  <img
+                    src="./docs/pethehalth_landing_page.png"
+                    alt="PetHealth Dashboard"
+                  />
+                </div>
+              </div>
+
+              <div class="p-6 flex flex-col flex-grow">
+                <div class="flex gap-2 mb-4 flex-wrap">
+                  <span
+                    class="bg-orange/20 text-orange px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide border border-orange"
+                    >Next.js</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold"
+                    >Gemini AI</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold"
+                    >AWS</span
+                  >
+                </div>
+
+                <h3 class="text-2xl font-bold text-gray-900 mb-3">
+                  PetHealth AI System
+                </h3>
+
+                <p class="text-gray-600 leading-relaxed mb-6 flex-grow">
+                  Full-stack pet health management platform with AI-powered
+                  analysis using Gemini API, automated email reminders via
+                  GitHub Actions, and robust AWS infrastructure with load
+                  balancing.
+                </p>
+
+                <div class="flex gap-3 mt-auto">
+                  <a
+                    href="https://pethealth.sychcc.net/"
+                    target="_blank"
+                    class="flex-1 flex items-center justify-center gap-2 bg-orange text-white font-semibold px-4 py-3 rounded-lg shadow-md hover:bg-orange-dark hover:shadow-lg transition-all active:scale-95"
+                  >
+                    Live Demo
+                    <span class="material-symbols-outlined text-sm"
+                      >open_in_new</span
+                    >
+                  </a>
+                  <a
+                    href="https://github.com/sychcc/PetHealth-2026"
+                    target="_blank"
+                    class="flex-1 flex items-center justify-center gap-2 bg-white text-gray-900 border-2 border-gray-900 font-semibold px-4 py-3 rounded-lg hover:bg-gray-900 hover:text-white transition-all active:scale-95"
+                  >
+                    View Code
+                    <span class="material-symbols-outlined text-sm">code</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 2: Taipei Day Trip -->
+            <div
+              class="bg-white border-3 border-gray-900 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group flex flex-col"
+            >
+              <div
+                class="relative h-64 overflow-hidden bg-gradient-to-br from-green-50 to-yellow-50"
+              >
+                <div
+                  class="absolute inset-0 flex items-center justify-center p-4"
+                >
+                  <img
+                    src="./docs/taipei_day_trip.png"
+                    alt="taipei-day-trip_landing_page"
+                  />
+                </div>
+              </div>
+
+              <div class="p-6 flex flex-col flex-grow">
+                <div class="flex gap-2 mb-4 flex-wrap">
+                  <span
+                    class="bg-orange/20 text-orange px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide border border-orange"
+                    >FastAPI</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold"
+                    >TapPay</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold"
+                    >MySQL</span
+                  >
+                </div>
+
+                <h3 class="text-2xl font-bold text-gray-900 mb-3">
+                  Taipei Day Trip Platform
+                </h3>
+
+                <p class="text-gray-600 leading-relaxed mb-6 flex-grow">
+                  E-commerce travel website for exploring and booking
+                  sightseeing trips in Taipei, featuring credit card payment
+                  integration via TapPay SDK, RESTful API backend, and MySQL
+                  database.
+                </p>
+
+                <div class="flex gap-3 mt-auto">
+                  <a
+                    href="https://taipei-day-trip.sychcc.net/"
+                    target="_blank"
+                    class="flex-1 flex items-center justify-center gap-2 bg-orange text-white font-semibold px-4 py-3 rounded-lg shadow-md hover:bg-orange-dark hover:shadow-lg transition-all active:scale-95"
+                  >
+                    Live Demo
+                    <span class="material-symbols-outlined text-sm"
+                      >open_in_new</span
+                    >
+                  </a>
+                  <a
+                    href="https://github.com/sychcc/taipei-day-trip"
+                    target="_blank"
+                    class="flex-1 flex items-center justify-center gap-2 bg-white text-gray-900 border-2 border-gray-900 font-semibold px-4 py-3 rounded-lg hover:bg-gray-900 hover:text-white transition-all active:scale-95"
+                  >
+                    View Code
+                    <span class="material-symbols-outlined text-sm">code</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section - Warm & friendly -->
+      <section class="py-24 bg-white relative overflow-hidden" id="contact">
+        <div
+          class="absolute top-0 right-0 w-96 h-96 bg-orange/10 rounded-full blur-3xl"
+        ></div>
+        <div
+          class="absolute bottom-0 left-0 w-96 h-96 bg-light-blue/30 rounded-full blur-3xl"
+        ></div>
+
+        <div class="max-w-4xl mx-auto px-6 relative z-10">
+          <div class="text-center mb-12">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Let's work together!
+            </h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+              I'm open for new opportunities and freelance projects. Whether you
+              have a question or just want to say hi, feel free to reach out!
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+            <!-- Contact Form -->
+            <div
+              class="md:col-span-3 bg-cream/50 border-3 border-gray-900 rounded-2xl p-8 shadow-xl"
+            >
+              <form
+                action="https://formspree.io/f/mwvazwwl"
+                method="POST"
+                class="space-y-6"
+              >
+                <div>
+                  <label
+                    class="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide"
+                    for="name"
+                    >Name</label
+                  >
+                  <input
+                    class="w-full bg-white border-2 border-gray-300 rounded-lg px-4 py-3 font-medium focus:outline-none focus:border-orange focus:ring-4 focus:ring-orange/20 transition-all"
+                    id="name"
+                    name="name"
+                    placeholder="Your Name"
+                    type="text"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label
+                    class="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide"
+                    for="email"
+                    >Email</label
+                  >
+                  <input
+                    class="w-full bg-white border-2 border-gray-300 rounded-lg px-4 py-3 font-medium focus:outline-none focus:border-orange focus:ring-4 focus:ring-orange/20 transition-all"
+                    id="email"
+                    name="email"
+                    placeholder="your@email.com"
+                    type="email"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label
+                    class="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide"
+                    for="message"
+                    >Message</label
+                  >
+                  <textarea
+                    class="w-full bg-white border-2 border-gray-300 rounded-lg px-4 py-3 font-medium focus:outline-none focus:border-orange focus:ring-4 focus:ring-orange/20 transition-all resize-none"
+                    id="message"
+                    name="message"
+                    placeholder="Hello there..."
+                    rows="5"
+                    required
+                  ></textarea>
+                </div>
+
+                <button
+                  class="w-full bg-orange text-white font-bold py-4 px-6 rounded-lg shadow-lg hover:bg-orange-dark hover:shadow-xl transition-all active:scale-95 flex items-center justify-center gap-2"
+                  type="submit"
+                >
+                  <span>Send Message</span>
+                  <span class="material-symbols-outlined text-xl">send</span>
+                </button>
+              </form>
+            </div>
+
+            <!-- Connect Links -->
+            <div class="md:col-span-2 flex flex-col gap-6">
+              <!-- Location Card -->
+              <div
+                class="rounded-2xl overflow-hidden h-48 relative border-3 border-gray-900 shadow-xl"
+              >
+                <!-- Background Image -->
+                <img
+                  src="./docs/taipei.jpg"
+                  alt="Taipei 101 skyline"
+                  class="absolute inset-0 w-full h-full object-cover"
+                />
+                <!-- Gradient Overlay -->
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent"
+                ></div>
+                <!-- Content -->
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="text-center text-white drop-shadow-lg">
+                    <span
+                      class="material-symbols-outlined icon-fill text-5xl mb-2"
+                      >location_on</span
+                    >
+                    <div class="text-xl font-bold">Taipei, Taiwan</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Social Links -->
+              <div
+                class="bg-light-purple/20 border-3 border-gray-900 rounded-2xl p-6 shadow-xl flex-grow space-y-3"
+              >
+                <a
+                  href="https://linkedin.com/in/sychcc"
+                  target="_blank"
+                  class="flex items-center justify-between p-4 rounded-xl bg-white hover:bg-orange/10 transition-all group border-2 border-transparent hover:border-orange"
+                >
+                  <div class="flex items-center gap-3">
+                    <div
+                      class="w-10 h-10 rounded-full bg-orange/20 flex items-center justify-center group-hover:bg-orange group-hover:text-white transition-all"
+                    >
+                      <span class="material-symbols-outlined">work</span>
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-gray-900">LinkedIn</h3>
+                      <span class="text-sm text-gray-600"
+                        >Professional Network</span
+                      >
+                    </div>
+                  </div>
+                  <span
+                    class="material-symbols-outlined text-gray-400 group-hover:text-orange group-hover:translate-x-1 transition-all"
+                    >arrow_forward</span
+                  >
+                </a>
+
+                <a
+                  href="https://github.com/sychcc"
+                  target="_blank"
+                  class="flex items-center justify-between p-4 rounded-xl bg-white hover:bg-orange/10 transition-all group border-2 border-transparent hover:border-orange"
+                >
+                  <div class="flex items-center gap-3">
+                    <div
+                      class="w-10 h-10 rounded-full bg-orange/20 flex items-center justify-center group-hover:bg-orange group-hover:text-white transition-all"
+                    >
+                      <span class="material-symbols-outlined">code</span>
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-gray-900">GitHub</h3>
+                      <span class="text-sm text-gray-600"
+                        >Code Repositories</span
+                      >
+                    </div>
+                  </div>
+                  <span
+                    class="material-symbols-outlined text-gray-400 group-hover:text-orange group-hover:translate-x-1 transition-all"
+                    >arrow_forward</span
+                  >
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 border-t-4 border-orange">
+      <div
+        class="flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-6 space-y-4 md:space-y-0"
+      >
+        <div class="font-bold text-xl">
+          Syrena <span class="text-orange">Chung</span>
+        </div>
+        <div class="text-sm text-gray-400">© 2026 Built by Syrena Chung</div>
+        <div class="flex items-center space-x-6">
+          <a
+            href="https://github.com/sychcc"
+            target="_blank"
+            class="text-sm text-gray-400 hover:text-orange transition-colors"
+            >GitHub</a
+          >
+          <a
+            href="https://linkedin.com/in/sychcc"
+            target="_blank"
+            class="text-sm text-gray-400 hover:text-orange transition-colors"
+            >LinkedIn</a
+          >
+          <a
+            href="mailto:sy.uxdev@gmail.com"
+            class="text-sm text-gray-400 hover:text-orange transition-colors"
+            >Email</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll Spy Script -->
+    <script>
+      // Typewriter effect - remove cursor after animation completes
+      setTimeout(() => {
+        const typewriterEl = document.getElementById("typewriter-text");
+        if (typewriterEl) {
+          typewriterEl.classList.add("typewriter-done");
+        }
+      }, 4500); // 1s delay + 3s typing + 0.5s buffer
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        const observerOptions = {
+          root: null,
+          rootMargin: "-20% 0px -70% 0px",
+          threshold: 0,
+        };
+
+        const observerCallback = (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const activeId = entry.target.getAttribute("id");
+
+              navLinks.forEach((link) => {
+                const sectionMatch =
+                  link.getAttribute("data-section") === activeId;
+
+                if (sectionMatch) {
+                  link.classList.add(
+                    "text-gray-900",
+                    "border-b-2",
+                    "border-orange",
+                    "pb-1",
+                  );
+                  link.classList.remove("text-gray-500");
+                } else {
+                  link.classList.remove(
+                    "text-gray-900",
+                    "border-b-2",
+                    "border-orange",
+                    "pb-1",
+                  );
+                  link.classList.add("text-gray-500");
+                }
+              });
+            }
+          });
+        };
+
+        const observer = new IntersectionObserver(
+          observerCallback,
+          observerOptions,
+        );
+        sections.forEach((section) => observer.observe(section));
+      });
+
+      // Contact form - async submit + reset
+      const contactForm = document.querySelector('form[action*="formspree"]');
+      if (contactForm) {
+        contactForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const btn = contactForm.querySelector('button[type="submit"]');
+          const originalHTML = btn.innerHTML;
+          btn.innerHTML = "<span>Sending...</span>";
+          btn.disabled = true;
+
+          try {
+            const res = await fetch(contactForm.action, {
+              method: "POST",
+              body: new FormData(contactForm),
+              headers: { Accept: "application/json" },
+            });
+
+            if (res.ok) {
+              contactForm.reset();
+              btn.innerHTML =
+                '<span>Sent!</span><span class="material-symbols-outlined text-xl">check_circle</span>';
+              setTimeout(() => {
+                btn.innerHTML = originalHTML;
+                btn.disabled = false;
+              }, 3000);
+            } else {
+              throw new Error();
+            }
+          } catch {
+            btn.innerHTML = "<span>Failed. Try again.</span>";
+            btn.disabled = false;
+            setTimeout(() => {
+              btn.innerHTML = originalHTML;
+            }, 3000);
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
